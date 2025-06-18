@@ -1,6 +1,11 @@
+import {ThemeContext} from 'app/providers/ThemeProvider/lib/ThemeContext';
+import {
+	LOCAL_STORAGE_THEME_KEY,
+	Theme,
+	ThemeContextType,
+	UseThemeResult,
+} from 'app/types/ThemeTypes';
 import {useContext} from 'react';
-import {ThemeContext} from './ThemeContext';
-import {LOCAL_STORAGE_THEME_KEY, Theme, ThemeContextType, UseThemeResult} from './types';
 
 export const useTheme = (): UseThemeResult => {
 	const {theme, setTheme} = useContext<ThemeContextType>(ThemeContext);

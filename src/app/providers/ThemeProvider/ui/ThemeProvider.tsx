@@ -1,6 +1,11 @@
+import {ThemeContext} from 'app/providers/ThemeProvider/lib/ThemeContext';
 import React, {FC} from 'react';
-import {ThemeContext} from './ThemeContext';
-import {defaultTheme, LOCAL_STORAGE_THEME_KEY, Theme, ThemeContextType} from './types';
+import {
+	defaultTheme,
+	LOCAL_STORAGE_THEME_KEY,
+	Theme,
+	ThemeContextType,
+} from '../../../types/ThemeTypes';
 
 export const ThemeProvider: FC = ({children}) => {
 	const storedTheme = (localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme) || defaultTheme;
