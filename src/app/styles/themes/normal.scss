@@ -1,6 +1,12 @@
 .app.normal {
-	--primary-color: #2c3e50; 
-	--secondary-color: #8e44ad; 
-	--background-color: #ecf0f1; 
-	--text-color: #2c3e50; 
+  --background-color: #ecf0f1;
+  --inverted-background-color: #bdc3c7;
+
+  --text-color: #d3d9df;
+
+  --primary-color: #2c3e50;
+  --inverted-primary-color: #34495e;
+
+  --secondary-color: #8e44ad;
+  --inverted-secondary-color: #9b59b6;
 }
