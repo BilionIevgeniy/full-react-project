@@ -1,19 +1,31 @@
 import { useTheme } from 'app/providers/ThemeProvider';
-import { Suspense } from 'react';
-import { initI18n } from 'shared/config/i18n/i18n';
-import { useLanguageSwitcher } from 'shared/hooks/useLanguageSwitcher';
+import React, { Suspense, useEffect } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
+import { useLanguageContext } from './providers/LanguageProvider';
 import { AppRouter } from './providers/router';
 import './styles/index.scss';
 
-initI18n();
 const App = () => {
 	const { theme } = useTheme();
-	const { isI18nReady } = useLanguageSwitcher();
-	if (!isI18nReady) {
-		return <div>Загрузка переводов...</div>; // Или спиннер, пока i18next не готов
+	const { isI18nReady, isLoading } = useLanguageContext();
+	if (!isI18nReady || isLoading) {
+		return (
+			<div
+				style={{
+					display: 'flex',
+					justifyContent: 'center',
+					alignItems: 'center',
+					height: '100vh',
+					fontSize: '24px',
+					color: '#333',
+				}}
+			>
+				Идет загрузка... Пожалуйста, подождите.
+				{/* Можно добавить спиннер или другую анимацию */}
+			</div>
+		);
 	}
 	return (
 		<div className={classNames('app', {}, [theme])}>
