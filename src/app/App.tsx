@@ -1,5 +1,5 @@
 import { useTheme } from 'app/providers/ThemeProvider';
-import React, { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { classNames } from 'shared/lib/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
@@ -7,7 +7,7 @@ import { useLanguageContext } from './providers/LanguageProvider';
 import { AppRouter } from './providers/router';
 import './styles/index.scss';
 
-const App = () => {
+function App() {
 	const { theme } = useTheme();
 	const { isI18nReady, isLoading } = useLanguageContext();
 	if (!isI18nReady || isLoading) {
@@ -38,6 +38,6 @@ const App = () => {
 			</Suspense>
 		</div>
 	);
-};
+}
 
 export default App;

@@ -7,7 +7,7 @@ interface NavbarProps {
 	className?: string;
 }
 
-export const Navbar = ({ className }: NavbarProps) => {
+export function Navbar({ className }: NavbarProps) {
 	return (
 		<div className={classNames(cls.Navbar, {}, [className])}>
 			<div className={cls.links}>
@@ -21,4 +21,4 @@ export const Navbar = ({ className }: NavbarProps) => {
 			<LangSwitcher />
 		</div>
 	);
-};
+}

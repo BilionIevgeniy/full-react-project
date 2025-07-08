@@ -17,7 +17,7 @@ export const useLanguageSwitcher = () => {
 	useEffect(() => {
 		const initialize = async () => {
 			try {
-				await initI18n(); // Инициализируем i18next
+				await initI18n; // Инициализируем i18next
 				setIsI18nReady(true);
 				setCurrentLanguage(i18next.language);
 			} catch (error) {
@@ -35,7 +35,7 @@ export const useLanguageSwitcher = () => {
 	const changeLanguage = useCallback(
 		async (lang: string) => {
 			if (currentLanguage === lang && !isLoading) {
-				console.log(`Язык ${lang} уже активен.`);
+				console.info(`Язык ${lang} уже активен.`);
 				return;
 			}
 
@@ -43,7 +43,7 @@ export const useLanguageSwitcher = () => {
 
 			try {
 				await i18next.changeLanguage(lang);
-				console.log(`Язык успешно изменен на ${lang} (промис разрешен).`);
+				console.info(`Язык успешно изменен на ${lang} (промис разрешен).`);
 			} catch (error) {
 				console.error(`Ошибка при смене языка на ${lang}:`, error);
 			} finally {
@@ -51,7 +51,7 @@ export const useLanguageSwitcher = () => {
 				setCurrentLanguage(lang);
 			}
 		},
-		[isI18nReady, currentLanguage, isLoading]
+		[currentLanguage, isLoading]
 	);
 
 	return {

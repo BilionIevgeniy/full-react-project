@@ -32,29 +32,27 @@ module.exports = {
 		'@typescript-eslint',
 		'prettier', // Плагин Prettier для ESLint
 	],
-	// Глобальные настройки для плагинов
 	settings: {
 		react: {
 			version: 'detect', // Автоматически определять версию React
 		},
 		'import/resolver': {
-			node: {
-				extensions: ['.js', '.jsx', '.ts', '.tsx'], // Добавляем TypeScript-расширения для импортов
-			},
 			typescript: {
-				// Добавляем резолвер для TypeScript
 				alwaysTryTypes: true,
+				project: './tsconfig.json',
+			},
+			node: {
+				extensions: ['.js', '.jsx', '.ts', '.tsx'],
 			},
 		},
 	},
-	// Основные правила ESLint
 	rules: {
+		camelcase: 'off',
+		'@typescript-eslint/naming-convention': 'off',
 		// === Правила, связанные с форматированием, которые делегируются Prettier ===
-		'prettier/prettier': ['error', { useTabs: true, tabWidth: 2 }], // Основное правило Prettier.
-		// Здесь мы повторно указываем useTabs и tabWidth,
-		// чтобы ESLint знал, какой стиль форматирования ожидать от Prettier.
-		// Хотя Prettier берет их из .prettierrc,
-		// это помогает избежать конфликтов и делает правило 'prettier/prettier' явным.
+		// Делегируем все правила форматирования Prettier.
+		// Prettier будет автоматически использовать конфигурацию из файла .prettierrc.json
+		'prettier/prettier': 'error',
 		indent: 'off', // Отключаем стандартное правило indent ESLint, т.к. его обрабатывает Prettier
 		'react/jsx-indent': 'off', // Отключаем, т.к. Prettier управляет этим
 		'react/jsx-indent-props': 'off', // Отключаем, т.к. Prettier управляет этим
@@ -86,7 +84,7 @@ module.exports = {
 			'warn',
 			{
 				code: 120, // Максимальная длина кода
-				tabWidth: 2, // Ширина таба для расчета длины
+				tabWidth: 4, // Ширина таба для расчета длины. Должна совпадать с .prettierrc.json
 				comments: 120, // Максимальная длина комментариев
 				ignoreComments: true,
 				ignoreTrailingComments: true,
@@ -105,5 +103,35 @@ module.exports = {
 		// Airbnb правило, которое конфликтует с TypeScript и должно быть отключено
 		'no-shadow': 'off',
 		'@typescript-eslint/no-shadow': ['error'], // Используем версию no-shadow от TypeScript ESLint
+
+		// === Правила, которые можно отключить при использовании TypeScript ===
+		// Отключаем, так как TypeScript обеспечивает проверку типов
+		'react/prop-types': 'off',
+		'react/button-has-type': 'off',
+
+		// === Правило для определения компонентов ===
+		// Разрешаем использовать как function declaration, так и стрелочные функции для компонентов
+		'react/function-component-definition': [
+			'error',
+			{ namedComponents: ['function-declaration', 'arrow-function'] },
+		],
+
+		// === Правило для import/no-extraneous-dependencies ===
+		'import/no-extraneous-dependencies': [
+			'error',
+			{
+				// Разрешаем импорт devDependencies в файлах, которые не идут в прод сборку
+				devDependencies: [
+					'./webpack.config.ts', // Разрешаем для корневого конфига Webpack
+					'**/.storybook/**', // Разрешаем для конфигов Storybook
+					'**/config/**', // все файлы в папке config (webpack, jest, storybook)
+					'**/*.test.{ts,tsx}', // все тестовые файлы
+					'**/*.stories.{ts,tsx}', // все файлы сториз для storybook
+				],
+			},
+		],
+	},
+	globals: {
+		__IS_DEV__: true,
 	},
 };

@@ -8,9 +8,9 @@ import cls from './LangSwitcher.module.scss';
 interface LangSwitcherProps {
 	className?: string;
 }
-export const LangSwitcher = ({ className }: LangSwitcherProps) => {
+export function LangSwitcher({ className }: LangSwitcherProps) {
 	const { t } = useTranslation();
-	const { isI18nReady, currentLanguage, changeLanguage, availableLanguages } = useLanguageContext();
+	const { currentLanguage, changeLanguage, availableLanguages } = useLanguageContext();
 
 	const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
 		const newLang = event.target.value;
@@ -30,4 +30,4 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
 			</select>
 		</div>
 	);
-};
+}
