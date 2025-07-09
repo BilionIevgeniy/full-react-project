@@ -7,26 +7,29 @@ import { ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './ThemeSwitcher.module.scss';
 
 interface ThemeSwitcherProps {
-	className?: string;
+    className?: string;
 }
 
 const BtnByTheme = {
-	normal: WhiteIcon,
-	dark: BlackIcon,
+    normal: WhiteIcon,
+    dark: BlackIcon,
 };
 
 export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = (props) => {
-	const { className } = props;
-	const { theme, toggleTheme } = useTheme();
-	const Icon = BtnByTheme[theme] || WhiteIcon;
+    const { className } = props;
+    const { theme, toggleTheme } = useTheme();
+    const Icon = BtnByTheme[theme] || WhiteIcon;
 
-	return (
-		<Button
-			theme={ButtonTheme.CLEAR}
-			className={classNames(cls.ThemeSwitcher, {}, [className, cls[theme]])}
-			onClick={toggleTheme}
-		>
-			<Icon />
-		</Button>
-	);
+    return (
+        <Button
+            theme={ButtonTheme.CLEAR}
+            className={classNames(cls.ThemeSwitcher, {}, [
+                className,
+                cls[theme],
+            ])}
+            onClick={toggleTheme}
+        >
+            <Icon />
+        </Button>
+    );
 };

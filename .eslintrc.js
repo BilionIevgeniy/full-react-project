@@ -3,7 +3,7 @@ module.exports = {
 	env: {
 		browser: true, // Добавляет глобальные переменные браузера (window, document и т.д.)
 		es2021: true, // Добавляет все глобальные переменные ECMAScript 2021
-		node: true, // Добавляет глобальные переменные Node.js
+		jest: true, // Добавляет глобальные переменные Jest для тестирования
 	},
 	// Конфигурации, которые расширяют набор правил
 	extends: [
@@ -22,14 +22,16 @@ module.exports = {
 		ecmaFeatures: {
 			jsx: true, // Разрешаем парсеру понимать JSX
 		},
-		ecmaVersion: 12, // Версия ECMAScript
+		ecmaVersion: 'latest', // Версия ECMAScript
 		sourceType: 'module', // Позволяет использовать импорты/экспорты
 		project: './tsconfig.json', // Путь к файлу tsconfig.json для TypeScript-правил
+		tsconfigRootDir: __dirname,
 	},
 	// Плагины, которые добавляют дополнительные правила или функционал
 	plugins: [
 		'react',
 		'@typescript-eslint',
+		'i18next', // Плагин для работы с i18next
 		'prettier', // Плагин Prettier для ESLint
 	],
 	settings: {
@@ -38,7 +40,7 @@ module.exports = {
 		},
 		'import/resolver': {
 			typescript: {
-				alwaysTryTypes: true,
+				alwaysTryTypes: true, // Всегда пытаться разрешать типы из TypeScript
 				project: './tsconfig.json',
 			},
 			node: {
@@ -47,7 +49,6 @@ module.exports = {
 		},
 	},
 	rules: {
-		camelcase: 'off',
 		'@typescript-eslint/naming-convention': 'off',
 		// === Правила, связанные с форматированием, которые делегируются Prettier ===
 		// Делегируем все правила форматирования Prettier.
@@ -64,8 +65,8 @@ module.exports = {
 		'no-underscore-dangle': 'off', // Разрешить висячие подчеркивания (например, _id)
 		'react/jsx-props-no-spreading': 'off', // Разрешить использование spread-оператора для props
 		'react/require-default-props': 'off', // Не требовать defaultProps для необязательных пропсов (для TS это менее актуально)
-		'jsx-a11y/no-static-element-interactions': 'off', // Отключаем, если есть необходимость использовать click/keypress на неинтерактивных элементах
-		'jsx-a11y/click-events-have-key-events': 'off', // Отключаем, если есть необходимость
+		// 'jsx-a11y/no-static-element-interactions': 'off', // Отключаем, если есть необходимость использовать click/keypress на неинтерактивных элементах
+		// 'jsx-a11y/click-events-have-key-events': 'off', // Отключаем, если есть необходимость
 		'react/react-in-jsx-scope': 'off', // Отключаем для React 17+ (новый JSX Transform)
 		'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx', '.ts', '.tsx'] }], // Разрешить JSX в .ts и .tsx файлах
 		'import/extensions': [
@@ -84,7 +85,7 @@ module.exports = {
 			'warn',
 			{
 				code: 120, // Максимальная длина кода
-				tabWidth: 4, // Ширина таба для расчета длины. Должна совпадать с .prettierrc.json
+				tabWidth: 2, // Ширина таба для расчета длины. Должна совпадать с .prettierrc.json
 				comments: 120, // Максимальная длина комментариев
 				ignoreComments: true,
 				ignoreTrailingComments: true,
@@ -111,10 +112,7 @@ module.exports = {
 
 		// === Правило для определения компонентов ===
 		// Разрешаем использовать как function declaration, так и стрелочные функции для компонентов
-		'react/function-component-definition': [
-			'error',
-			{ namedComponents: ['function-declaration', 'arrow-function'] },
-		],
+		'react/function-component-definition': ['error', { namedComponents: ['function-declaration', 'arrow-function'] }],
 
 		// === Правило для import/no-extraneous-dependencies ===
 		'import/no-extraneous-dependencies': [
@@ -130,8 +128,18 @@ module.exports = {
 				],
 			},
 		],
+		'i18next/no-literal-string': ['error', { markupOnly: true, ignoreAttribute: ['to', 'target', 'path'] }],
 	},
 	globals: {
 		__IS_DEV__: true,
 	},
+	overrides: [
+		{
+			// Отключаем правила, требующие информации о типах, для конфигурационных файлов
+			files: ['./.eslintrc.js', './webpack.config.ts', './config/**/*.ts'],
+			rules: {
+				'i18next/no-literal-string': 'off',
+			},
+		},
+	],
 };

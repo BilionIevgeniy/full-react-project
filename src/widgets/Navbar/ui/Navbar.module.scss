@@ -1,18 +1,19 @@
 .Navbar {
-  width: 100%;
-  height: var(--navbar-height);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background-color: var(--inverted-bg-color);
-  color: var(--text-color);
+	width: 100%;
+	height: var(--navbar-height);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 20px;
+	background-color: var(--inverted-bg-color);
+	color: var(--text-color);
 }
 
 .links {
-  font-size: var(--font-size-m);
-  line-height: var(--font-line-m);
-  & > *:first-child {
-    margin-right: 20px;
-  }
+	font-size: var(--font-size-m);
+	line-height: var(--font-line-m);
+
+	&>*:first-child {
+		margin-right: 20px;
+	}
 }
