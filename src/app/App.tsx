@@ -14,16 +14,7 @@ function App() {
     const { isI18nReady, isLoading } = useLanguageContext();
     if (!isI18nReady || isLoading) {
         return (
-            <div
-                style={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    height: '100vh',
-                    fontSize: '24px',
-                    color: '#333',
-                }}
-            >
+            <div className="app-loading">
                 {t('Идет загрузка... Пожалуйста, подождите.')}
             </div>
         );

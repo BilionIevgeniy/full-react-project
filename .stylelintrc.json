@@ -1,8 +1,11 @@
 {
     "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier"],
     "rules": {
-        "color-no-invalid-hex": true,
         "declaration-block-no-duplicate-properties": true,
-        "selector-class-pattern": null
+        "selector-class-pattern": null,
+        "scss/at-rule-no-unknown": true,
+        "color-no-invalid-hex": true,
+        "property-no-unknown": true,
+        "block-no-empty": null
     }
 }

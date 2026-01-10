@@ -6,9 +6,9 @@ import { classNames } from 'shared/lib/classNames';
 import cls from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
-    className?: string;
+    className: string;
 }
-export function LangSwitcher({ className }: LangSwitcherProps) {
+export function LangSwitcher({ className = '' }: LangSwitcherProps) {
     const { t } = useTranslation();
     const { currentLanguage, changeLanguage, availableLanguages } =
         useLanguageContext();
