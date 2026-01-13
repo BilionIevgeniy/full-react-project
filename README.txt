@@ -1,24 +1,24 @@
 FCD
 src/
-  ├── app/                  # Initialization (Providers, Router)
-  ├── pages/                # Pages (Home, Profile)
-  ├── widgets/              # Composition (Navbar, Footer)
-  │    └── Navbar/
-  │         ├── ui/         # Widget components
-  │         └── index.ts    # Public API
-  ├── features/             # Actions (ThemeSwitcher, Auth)
-  │    └── ThemeSwitcher/
-  │         ├── ui/
-  │         ├── model/      # Theme switching logic
+  ├── app/                  # LAYER Initialization (Providers, Router)
+  ├── pages/                # LAYER Pages (Home, Profile)
+  ├── widgets/              # LAYER Composition (Navbar, Footer)
+  │    └── Navbar/          #   SLICE Widget components
+  │         ├── ui/         #     SEGMENT 
+  │         └── index.ts    #     Public API
+  ├── features/             # LAYER Actions (ThemeSwitcher, Auth)
+  │    └── ThemeSwitcher/   #   SLICE Theme switching logic
+  │         ├── ui/         #     SEGMENT
+  │         ├── model/      #     SEGMENT 
   │         └── index.ts
-  ├── entities/             # Entities (User, Article)
-  │    └── User/
-  │         ├── ui/         # User card
-  │         ├── model/      # User state
+  ├── entities/             # LAYER Entities (User, Article)
+  │    └── User/            #   SLICE
+  │         ├── ui/         #     SEGMENT User card
+  │         ├── model/      #     SEGMENT User state
   │         └── index.ts
-  └── shared/               # Infrastructure (Button, Input, API)
-       ├── ui/              # UI-Kit
-       └── api/             # Basic axios config
+  └── shared/               # LAYER Infrastructure (Button, Input, API)
+       ├── ui/              #   SEGMENT UI-Kit
+       └── api/             #   SEGMENT Basic axios config
 
 node=17.4.0
 Internationalization (i18n) - Quick Start

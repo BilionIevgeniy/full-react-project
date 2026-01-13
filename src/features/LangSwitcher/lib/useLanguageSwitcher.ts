@@ -1,4 +1,3 @@
-// src/hooks/useLanguageSwitcher.ts
 import { useCallback, useEffect, useState } from 'react';
 import i18next from 'i18next';
 import { initI18n } from 'shared/config/i18n/i18n';

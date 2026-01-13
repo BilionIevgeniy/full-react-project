@@ -1,6 +1,5 @@
-// src/providers/LanguageProvider/LanguageProvider.tsx
 import React, { ReactNode } from 'react';
-import { useLanguageSwitcher } from 'shared/hooks/useLanguageSwitcher'; // Твой хук
+import { useLanguageSwitcher } from 'features/LangSwitcher/lib/useLanguageSwitcher';
 import { LanguageContext } from '../lib/LanguageContext';
 
 interface LanguageProviderProps {

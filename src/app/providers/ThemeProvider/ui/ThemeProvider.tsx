@@ -1,4 +1,3 @@
-import { ThemeContext } from 'app/providers/ThemeProvider/lib/ThemeContext';
 import React, { FC } from 'react';
 import {
     defaultTheme,
@@ -6,6 +5,7 @@ import {
     Theme,
     ThemeContextType,
 } from '../../../types/ThemeTypes';
+import { ThemeContext } from '../lib/ThemeContext';
 
 export const ThemeProvider: FC = ({ children }) => {
     const storedTheme =
