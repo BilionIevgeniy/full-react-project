@@ -1,3 +1,25 @@
+FCD
+src/
+  ├── app/                  # Initialization (Providers, Router)
+  ├── pages/                # Pages (Home, Profile)
+  ├── widgets/              # Composition (Navbar, Footer)
+  │    └── Navbar/
+  │         ├── ui/         # Widget components
+  │         └── index.ts    # Public API
+  ├── features/             # Actions (ThemeSwitcher, Auth)
+  │    └── ThemeSwitcher/
+  │         ├── ui/
+  │         ├── model/      # Theme switching logic
+  │         └── index.ts
+  ├── entities/             # Entities (User, Article)
+  │    └── User/
+  │         ├── ui/         # User card
+  │         ├── model/      # User state
+  │         └── index.ts
+  └── shared/               # Infrastructure (Button, Input, API)
+       ├── ui/              # UI-Kit
+       └── api/             # Basic axios config
+
 node=17.4.0
 Internationalization (i18n) - Quick Start
 	This project uses Google Sheets, a NestJS backend, and i18next for translations.

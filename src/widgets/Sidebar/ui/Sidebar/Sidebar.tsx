@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/classNames';
-import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
+import { ThemeSwitcher } from 'features/ThemeSwitcher';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {

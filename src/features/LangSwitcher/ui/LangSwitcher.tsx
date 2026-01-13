@@ -1,4 +1,3 @@
-// src/components/Languages.tsx
 import { useLanguageContext } from 'app/providers/LanguageProvider';
 import React from 'react';
 import { useTranslation } from 'react-i18next'; // Если используешь useTranslation
