@@ -8,7 +8,7 @@ interface SidebarProps {
     className?: string;
 }
 
-export function Sidebar({ className }: SidebarProps) {
+export function Sidebar({ className = '' }: SidebarProps) {
     const [collapsed, setCollapsed] = React.useState(false);
     const { t } = useTranslation();
     const onToggle = () => {

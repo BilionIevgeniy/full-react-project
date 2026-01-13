@@ -22,7 +22,7 @@ function App() {
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">
-                <Navbar />
+                <Navbar className="" />
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />

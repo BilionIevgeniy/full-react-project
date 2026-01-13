@@ -14,7 +14,7 @@ export const ThemeProvider: FC = ({ children }) => {
     const [theme, setTheme] = React.useState(storedTheme);
     const initialValue: ThemeContextType = React.useMemo(
         () => ({ theme, setTheme }),
-        [theme, setTheme],
+        [theme],
     );
 
     return (

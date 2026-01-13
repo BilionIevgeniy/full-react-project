@@ -5,7 +5,7 @@ import { LangSwitcher } from 'widgets/LangSwitcher';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
-    className?: string;
+    className: string;
 }
 
 export function Navbar({ className }: NavbarProps) {
@@ -13,14 +13,22 @@ export function Navbar({ className }: NavbarProps) {
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
             <div className={cls.links}>
-                <AppLink to="/" theme={AppLinkTheme.PRIMARY}>
+                <AppLink
+                    className={className}
+                    to="/"
+                    theme={AppLinkTheme.PRIMARY}
+                >
                     {t('Home')}
                 </AppLink>
-                <AppLink to="/about" theme={AppLinkTheme.SECONDARY}>
+                <AppLink
+                    className={className}
+                    to="/about"
+                    theme={AppLinkTheme.SECONDARY}
+                >
                     {t('About')}
                 </AppLink>
             </div>
-            <LangSwitcher />
+            <LangSwitcher className={className} />
         </div>
     );
 }

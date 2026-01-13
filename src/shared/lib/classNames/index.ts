@@ -1,10 +1,10 @@
 export function classNames(
-    cls: string,
+    mainCls: string,
     mods: Record<string, boolean | string> = {},
     additional: string[] = [],
 ): string {
     return [
-        cls,
+        mainCls,
         ...Object.entries(mods)
             .filter(([_, value]) => Boolean(value))
             .map(([className]) => className),

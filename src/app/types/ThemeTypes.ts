@@ -1,13 +1,14 @@
 enum Theme {
     NORMAL = 'normal',
     DARK = 'dark',
+    LIGHT = 'light',
 }
 const LOCAL_STORAGE_THEME_KEY = 'theme';
 const defaultTheme = Theme.NORMAL;
 
 interface ThemeContextType {
-    theme?: Theme;
-    setTheme?: (theme: Theme) => void;
+    theme: Theme;
+    setTheme: (theme: Theme) => void;
 }
 
 interface UseThemeResult {

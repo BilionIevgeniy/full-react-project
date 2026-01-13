@@ -13,10 +13,11 @@ interface ThemeSwitcherProps {
 const BtnByTheme = {
     normal: WhiteIcon,
     dark: BlackIcon,
+    light: WhiteIcon,
 };
 
 export const ThemeSwitcher: React.FC<ThemeSwitcherProps> = (props) => {
-    const { className } = props;
+    const { className = '' } = props;
     const { theme, toggleTheme } = useTheme();
     const Icon = BtnByTheme[theme] || WhiteIcon;
 
