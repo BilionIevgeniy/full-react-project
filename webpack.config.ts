@@ -14,7 +14,7 @@ export default (env: BuildEnv) => {
         html: path.resolve(__dirname, 'public', 'index.html'),
     };
 
-    // Определение режима сборки (приоритет: CLI > .env > default)
+    // Determining the build mode (priority: CLI > .env > default)
     const cliMode = env.mode;
     const envFileMode = process.env.MODE as
         | 'production'
@@ -23,7 +23,7 @@ export default (env: BuildEnv) => {
     const mode = cliMode || envFileMode || 'development';
     const isDev = mode === 'development';
 
-    // Определение порта для devServer (приоритет: CLI > .env > default)
+    // Determining the port for devServer (priority: CLI > .env > default)
     const cliPort = env.port ? Number(env.port) : undefined;
     const envFilePort = process.env.PORT ? Number(process.env.PORT) : undefined;
     const port = cliPort || envFilePort || 3000;

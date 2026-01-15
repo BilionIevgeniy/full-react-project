@@ -9,18 +9,18 @@ export const useLanguage = () => {
 
     const availableLanguages = [
         { code: 'en', name: 'English' },
-        { code: 'ru', name: 'Русский' },
+        { code: 'ru', name: 'Russian' },
         { code: 'de', name: 'Deutsch' },
     ];
 
     useEffect(() => {
         const initialize = async () => {
             try {
-                await initI18n; // Инициализируем i18next
+                await initI18n; // Initialize i18next
                 setIsI18nReady(true);
                 setCurrentLanguage(i18next.language);
             } catch (error) {
-                console.error('Ошибка инициализации i18next:', error);
+                console.error('i18next initialization error:', error);
             } finally {
                 setIsLoading(false);
             }
@@ -34,7 +34,7 @@ export const useLanguage = () => {
     const changeLanguage = useCallback(
         async (lang: string) => {
             if (currentLanguage === lang && !isLoading) {
-                console.info(`Язык ${lang} уже активен.`);
+                console.info(`Language ${lang} is already active.`);
                 return;
             }
 
@@ -43,10 +43,10 @@ export const useLanguage = () => {
             try {
                 await i18next.changeLanguage(lang);
                 console.info(
-                    `Язык успешно изменен на ${lang} (промис разрешен).`,
+                    `Language successfully changed to ${lang} (promise resolved).`,
                 );
             } catch (error) {
-                console.error(`Ошибка при смене языка на ${lang}:`, error);
+                console.error(`Error changing language to ${lang}:`, error);
             } finally {
                 setIsLoading(false);
                 setCurrentLanguage(lang);
