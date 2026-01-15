@@ -3,10 +3,26 @@
 	background: var(--inverted-bg-color);
 	position: relative;
 	transition: width 0.3s;
+	overflow: auto;
 }
 
 .collapsed {
 	width: var(--sidebar-width-collapsed);
+}
+
+.button {
+	cursor: pointer;
+	color: inherit;
+	padding: 12px 16px;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: block;
+
+	&:hover {
+		background: color-mix(in srgb, var(--inverted-bg-color), black 5%)
+	}
 }
 
 .switchers {
