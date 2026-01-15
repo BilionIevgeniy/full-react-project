@@ -1,4 +1,4 @@
-import { useTheme } from 'app/providers/ThemeProvider';
+import { useTheme } from 'entities/Theme/lib/useTheme';
 import BlackIcon from 'shared/assets/icons/theme-dark.svg';
 import WhiteIcon from 'shared/assets/icons/theme-light.svg';
 import { classNames } from 'shared/lib/classNames';

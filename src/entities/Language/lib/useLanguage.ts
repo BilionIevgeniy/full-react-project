@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import i18next from 'i18next';
 import { initI18n } from 'shared/config/i18n/i18n';
 
-export const useLanguageSwitcher = () => {
+export const useLanguage = () => {
     const [isI18nReady, setIsI18nReady] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [currentLanguage, setCurrentLanguage] = useState(i18next.language);

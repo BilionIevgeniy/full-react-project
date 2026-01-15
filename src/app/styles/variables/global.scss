@@ -20,16 +20,12 @@
 	/* Larger line height */
 	--font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
 
-	// size
+	// Navbar
 	--navbar-height: 50px;
-
-	/* Height of the Navbar */
 	--navbar-padding: 10px 20px;
-
-	/* Padding for the Navbar */
 	--navbar-width: 100%;
 
-	/* Width of the Navbar */
+	// Sidebar
 	--sidebar-width: 300px;
 	--sidebar-width-collapsed: 80px;
 }

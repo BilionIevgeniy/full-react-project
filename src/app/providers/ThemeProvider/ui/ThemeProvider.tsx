@@ -3,9 +3,9 @@ import {
     defaultTheme,
     LOCAL_STORAGE_THEME_KEY,
     Theme,
+    ThemeContext,
     ThemeContextType,
-} from '../../../types/ThemeTypes';
-import { ThemeContext } from '../lib/ThemeContext';
+} from 'entities/Theme/';
 
 export const ThemeProvider: FC = ({ children }) => {
     const storedTheme =

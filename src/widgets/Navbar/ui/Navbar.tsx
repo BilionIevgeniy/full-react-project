@@ -5,10 +5,11 @@ import { LangSwitcher } from 'features/LangSwitcher';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
-    className: string;
+    className?: string;
 }
 
-export function Navbar({ className }: NavbarProps) {
+export function Navbar(props: NavbarProps) {
+    const { className = '' } = props;
     const { t } = useTranslation();
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>

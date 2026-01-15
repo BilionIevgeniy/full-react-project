@@ -1,10 +1,10 @@
-import { useTheme } from 'app/providers/ThemeProvider';
 import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/classNames';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar';
-import { useLanguageContext } from './providers/LanguageProvider';
+import { useTheme } from 'entities/Theme/lib/useTheme';
+import { useLanguageContext } from 'entities/Language';
+import { classNames } from 'shared/lib/classNames';
 import { AppRouter } from './providers/router';
 import './styles/index.scss';
 

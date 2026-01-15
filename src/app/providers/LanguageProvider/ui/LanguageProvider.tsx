@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
-import { useLanguageSwitcher } from 'features/LangSwitcher/lib/useLanguageSwitcher';
-import { LanguageContext } from '../lib/LanguageContext';
+import { LanguageContext, useLanguage } from 'entities/Language';
 
 interface LanguageProviderProps {
     children: ReactNode;
@@ -9,7 +8,7 @@ interface LanguageProviderProps {
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({
     children,
 }) => {
-    const value = useLanguageSwitcher();
+    const value = useLanguage();
 
     return (
         <LanguageContext.Provider value={value}>

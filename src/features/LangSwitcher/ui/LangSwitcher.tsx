@@ -1,11 +1,11 @@
-import { useLanguageContext } from 'app/providers/LanguageProvider';
 import React from 'react';
-import { useTranslation } from 'react-i18next'; // Если используешь useTranslation
+import { useTranslation } from 'react-i18next';
+import { useLanguageContext } from 'entities/Language';
 import { classNames } from 'shared/lib/classNames';
 import cls from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
-    className: string;
+    className?: string;
 }
 export function LangSwitcher({ className = '' }: LangSwitcherProps) {
     const { t } = useTranslation();
@@ -19,7 +19,6 @@ export function LangSwitcher({ className = '' }: LangSwitcherProps) {
 
     return (
         <div className={classNames(cls.Navbar, {}, [className])}>
-            {/* Опционально: метка для селекта, можно перевести через t() */}
             <label htmlFor="language-select">
                 {t('select_language_label')}
             </label>

@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Route, Routes } from 'react-router-dom';
-import { routeConfig } from '../routeConfig/routeConfig';
+import { routeConfig } from '../config/routeConfig';
 
 function AppRouter() {
     const { t } = useTranslation();
