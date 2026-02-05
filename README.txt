@@ -1,3 +1,4 @@
+node=17.4.0
 FCD
 src/
   ├── app/                  # LAYER Initialization (Providers, Router)
@@ -20,7 +21,7 @@ src/
        ├── ui/              #   SEGMENT UI-Kit
        └── api/             #   SEGMENT Basic axios config
 
-node=17.4.0
+
 Internationalization (i18n) - Quick Start
 	This project uses Google Sheets, a NestJS backend, and i18next for translations.
 

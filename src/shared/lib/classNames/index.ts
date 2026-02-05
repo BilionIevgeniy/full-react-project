@@ -1,13 +1,13 @@
 export function classNames(
-    mainCls: string,
-    mods: Record<string, boolean | string> = {},
-    additional: string[] = [],
+  mainCls: string,
+  mods: Record<string, boolean | string> = {},
+  additional: string[] = [],
 ): string {
-    return [
-        mainCls,
-        ...Object.entries(mods)
-            .filter(([_, value]) => Boolean(value))
-            .map(([className]) => className),
-        ...additional.filter(Boolean),
-    ].join(' ');
+  return [
+    mainCls,
+    ...Object.entries(mods)
+      .filter(([_, value]) => Boolean(value))
+      .map(([className]) => className),
+    ...additional.filter(Boolean),
+  ].join(' ');
 }

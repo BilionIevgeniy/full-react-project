@@ -6,28 +6,28 @@ import { Button } from 'shared/ui';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
-    className?: string;
+  className?: string;
 }
 
 export function Sidebar({ className = '' }: SidebarProps) {
-    const { t } = useTranslation();
-    const [collapsed, setCollapsed] = React.useState(false);
-    const onToggle = () => {
-        setCollapsed((prev) => !prev);
-    };
+  const { t } = useTranslation();
+  const [collapsed, setCollapsed] = React.useState(false);
+  const onToggle = () => {
+    setCollapsed((prev) => !prev);
+  };
 
-    return (
-        <div
-            className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
-                className,
-            ])}
-        >
-            <Button className={cls.button} onClick={onToggle}>
-                {t('toggle_btn')}
-            </Button>
-            <div className={cls.switchers}>
-                <ThemeSwitcher />
-            </div>
-        </div>
-    );
+  return (
+    <div
+      className={classNames(cls.Sidebar, { [cls.collapsed]: collapsed }, [
+        className,
+      ])}
+    >
+      <Button className={cls.button} onClick={onToggle}>
+        {t('toggle_btn')}
+      </Button>
+      <div className={cls.switchers}>
+        <ThemeSwitcher />
+      </div>
+    </div>
+  );
 }

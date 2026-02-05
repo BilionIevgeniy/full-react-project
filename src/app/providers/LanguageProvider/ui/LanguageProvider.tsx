@@ -2,17 +2,17 @@ import React, { ReactNode } from 'react';
 import { LanguageContext, useLanguage } from 'entities/Language';
 
 interface LanguageProviderProps {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 export const LanguageProvider: React.FC<LanguageProviderProps> = ({
-    children,
+  children,
 }) => {
-    const value = useLanguage();
+  const value = useLanguage();
 
-    return (
-        <LanguageContext.Provider value={value}>
-            {children}
-        </LanguageContext.Provider>
-    );
+  return (
+    <LanguageContext.Provider value={value}>
+      {children}
+    </LanguageContext.Provider>
+  );
 };
