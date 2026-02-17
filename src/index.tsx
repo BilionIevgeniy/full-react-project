@@ -5,7 +5,9 @@ import { ThemeProvider } from 'app/providers/ThemeProvider';
 import { LanguageProvider } from 'app/providers/LanguageProvider/ui/LanguageProvider';
 
 render(
-  <BrowserRouter>
+  <BrowserRouter
+    future={{ v7_startTransition: true, v7_relativeSplatPath: true }}
+  >
     <ThemeProvider>
       <LanguageProvider>
         <App />

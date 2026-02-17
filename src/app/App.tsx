@@ -10,25 +10,20 @@ import './styles/index.scss';
 
 function App() {
   const { theme } = useTheme();
-  const { t } = useTranslation();
   const { isI18nReady, isLoading } = useLanguageContext();
   if (!isI18nReady || isLoading) {
-    return (
-      <div className="app-loading">
-        {t('Идет загрузка... Пожалуйста, подождите.')}
-      </div>
-    );
+    return <div className="app-loading">Loading</div>;
   }
   return (
-    <div className={classNames('app', {}, [theme])}>
-      <Suspense fallback="">
+    <Suspense fallback={<div className="suspense">'Loading...'</div>}>
+      <div className={classNames('app', {}, [theme])}>
         <Navbar className="" />
         <div className="content-page">
           <Sidebar />
           <AppRouter />
         </div>
-      </Suspense>
-    </div>
+      </div>
+    </Suspense>
   );
 }
 

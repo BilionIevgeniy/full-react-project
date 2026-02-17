@@ -33,7 +33,7 @@ i18next
       escapeValue: false,
     },
     react: {
-      useSuspense: false, // Leave as false for manual isLoading
+      useSuspense: true, // Leave as false for manual isLoading
     },
   });
 export const initI18n: i18n = i18next;
