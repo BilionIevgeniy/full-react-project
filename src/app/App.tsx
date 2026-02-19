@@ -7,15 +7,16 @@ import { useLanguageContext } from 'entities/Language';
 import { classNames } from 'shared/lib/classNames';
 import { AppRouter } from './providers/router';
 import './styles/index.scss';
+import { Loader } from 'shared/ui';
 
 function App() {
   const { theme } = useTheme();
   const { isI18nReady, isLoading } = useLanguageContext();
   if (!isI18nReady || isLoading) {
-    return <div className="app-loading">Loading</div>;
+    return <Loader />;
   }
   return (
-    <Suspense fallback={<div className="suspense">'Loading...'</div>}>
+    <Suspense fallback={<Loader />}>
       <div className={classNames('app', {}, [theme])}>
         <Navbar className="" />
         <div className="content-page">

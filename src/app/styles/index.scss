@@ -1,7 +1,7 @@
 @use './reset';
 @use './variables/global.scss';
-@use './themes/normal.scss';
-@use './themes/dark.scss';
+@use './themes/normal.scss' as *;
+@use './themes/dark.scss' as *;
 
 .app {
   font: var(--font-m);
@@ -27,8 +27,4 @@
   height: 100dvh;
   font-size: 24px;
   color: #333;
-}
-
-.suspense {
-  background-color: var(--background-color);
 }

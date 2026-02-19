@@ -64,13 +64,13 @@ focused on scalable, maintainable, and modern web applications.
 
 FCD
 src/
-  ├── app/                  # LAYER Initialization (Providers, Router)
-  ├── pages/                # LAYER Pages (Home, Profile)
+  ├── app/                  # LAYER Initialization (Providers, Router) Entry point of the project
+  ├── pages/                # LAYER Pages High-level screens (Home, Profile)
   ├── widgets/              # LAYER Composition (Navbar, Footer)
   │    └── Navbar/          #   SLICE Widget components
   │         ├── ui/         #     SEGMENT 
   │         └── index.ts    #     Public API
-  ├── features/             # LAYER Actions (ThemeSwitcher, Auth)
+  ├── features/             # LAYER Feature/Action Business logic and actions(ThemeSwitcher, Auth)
   │    └── ThemeSwitcher/   #   SLICE Theme switching logic
   │         ├── ui/         #     SEGMENT
   │         ├── model/      #     SEGMENT 
@@ -80,7 +80,7 @@ src/
   │         ├── ui/         #     SEGMENT User card
   │         ├── model/      #     SEGMENT User state
   │         └── index.ts
-  └── shared/               # LAYER Infrastructure (Button, Input, API)
+  └── shared/               # LAYER Infrastructure Reusable low-level code(Button, Input, API)
        ├── ui/              #   SEGMENT UI-Kit
        └── api/             #   SEGMENT Basic axios config
 
